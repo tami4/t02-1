@@ -1,0 +1,32 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+</script>
+
+
+<div class="contentA"> My Site 
+    <iframe id="myIFrame" height="80%" width="100%" class="netframe" src="http://korotkin.co.il/"></iframe>
+</div>
+
+<div class="contentB" ng-app="sitesApp" ng-controller="siteListCtrl">
+     <form method="post">
+            <h7>site : <h7> 
+            <input type="text" id="url" ng-model="siteName" >
+            <input type="submit" id="btn" value="טען" ng-click="addSite()"> 
+      </form>
+
+      <br/>
+      <h7>response :<h7> 
+      <input type="text" ng-model="textbox" />
+      <input type="button" value="שלח" ng-click="addReply()"/>    
+      <br/>
+      <br/>
+      <div ng-repeat="site in sites | filter:siteName" >
+          <div ng-model="site.name" />
+              <ul> 
+                  <li ng-repeat="rep1 in site.Reply " >
+                      <div ng-model="rep1.rep" />
+                        {{rep1.rep}}
+                  </li>            
+              </ul>
+      </div>
+ </div>      
+
